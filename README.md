@@ -2,6 +2,8 @@
 
 Cloud colorizer is a simple tool to colorize your point clouds from tiff images.
 
+Special credits to [pnytko](https://github.com/pnytko) for the original idea.
+
 ## Requirements
 
 * rasterio
