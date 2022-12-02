@@ -40,13 +40,13 @@ def parse_args():
             "Error",
             "Path must be a .las or .laz file",
         )
-
-    if os.path.isdir(args.output):
-        os.path.join(
-            args.output,
+    output_path = args.output
+    if os.path.isdir(output_path):
+        output_path = os.path.join(
+            output_path,
             os.path.basename(args.input)
             .replace(".las", "_colorized.las")
             .replace(".laz", "_colorized.laz"),
         )
 
-    return args.input, args.tiff, args.output
+    return args.input, args.tiff, output_path
