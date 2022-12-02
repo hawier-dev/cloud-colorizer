@@ -1,4 +1,5 @@
 import argparse
+import os.path
 import sys
 
 import rasterio as rio
@@ -34,10 +35,18 @@ def parse_args():
     )
     args = parser.parse_args()
 
-    if not args.las_path.endswith(".las") and not args.las_path.endswith(".laz"):
+    if not args.input.endswith(".las") and not args.input.endswith(".laz"):
         error_message(
             "Error",
             "Path must be a .las or .laz file",
+        )
+
+    if os.path.isdir(args.output):
+        os.path.join(
+            args.output,
+            os.path.basename(args.input)
+            .replace(".las", "_colorized.las")
+            .replace(".laz", "_colorized.laz"),
         )
 
     return args.input, args.tiff, args.output
